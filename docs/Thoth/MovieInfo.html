@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: Thoth::MovieInfo</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript" 
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript" 
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript" 
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript" 
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+	
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/Thoth/MovieInfo.rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/Thoth/MovieInfo.rb">lib/Thoth/MovieInfo.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+			
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#get_cast">get_cast</a></li>
+					
+					<li><a href="#get_directors">get_directors</a></li>
+					
+					<li><a href="#get_genres">get_genres</a></li>
+					
+					<li><a href="#get_plot">get_plot</a></li>
+					
+					<li><a href="#get_rating">get_rating</a></li>
+					
+					<li><a href="#get_recomendations">get_recomendations</a></li>
+					
+					<li><a href="#get_runtime">get_runtime</a></li>
+					
+					<li><a href="#get_tagline">get_tagline</a></li>
+					
+					<li><a href="#get_title_and_year">get_title_and_year</a></li>
+					
+					<li><a href="#get_writers">get_writers</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+	
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../README.html">README</a></li>
+				
+					<li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+				
+					<li class="file"><a href="../config.ru.html">config.ru</a></li>
+				
+				</ul>
+			</div>
+			
+			
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index 
+					<span class="search-toggle"><img src="../images/find.png" 
+						height="16" width="16" alt="[+]" 
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value="" 
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+				
+					<li><a href="../Thoth.html">Thoth</a></li>
+				
+				
+					<li><a href="../Thoth/Attributes.html">Thoth::Attributes</a></li>
+				
+				
+					<li><a href="../Thoth/AutoJ.html">Thoth::AutoJ</a></li>
+				
+				
+					<li><a href="../Thoth/Character.html">Thoth::Character</a></li>
+				
+				
+					<li><a href="../Thoth/Director.html">Thoth::Director</a></li>
+				
+				
+					<li><a href="../Thoth/ImdbMovieParser.html">Thoth::ImdbMovieParser</a></li>
+				
+				
+					<li><a href="../Thoth/Movie.html">Thoth::Movie</a></li>
+				
+				
+					<li><a href="../Thoth/MovieInfo.html">Thoth::MovieInfo</a></li>
+				
+				
+					<li><a href="../Thoth/MovieSearchProvider.html">Thoth::MovieSearchProvider</a></li>
+				
+				
+					<li><a href="../Thoth/SearchResult.html">Thoth::SearchResult</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		
+		<h1 class="module">Thoth::MovieInfo</h1>
+		
+
+		<div id="description">
+			<p>
+Helpers para recuperar informações do filme do <a
+href="http://imdb.com">imdb.com</a> utilizando Nokogiri.
+</p>
+
+		</div>
+
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+
+		
+			
+			<div id="get-cast-method" class="method-detail">
+			
+				<a name="get_cast"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_cast</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera o elenco do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-cast-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 89</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_cast</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">cast</span> = []
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//table[@class=&quot;cast&quot;]//tr'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">cast</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Thoth</span><span class="ruby-operator">::</span><span class="ruby-constant">Character</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">actor</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">content</span>
+                    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">content</span>
+                <span class="ruby-keyword kw">end</span>)
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">cast</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-directors-method" class="method-detail">
+			
+				<a name="get_directors"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_directors</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera os diretores do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-directors-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 79</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_directors</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">director</span> = []
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//div[@id=&quot;director-info&quot;]//div[@class=&quot;info-content&quot;]//a'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">director</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Thoth</span><span class="ruby-operator">::</span><span class="ruby-constant">Director</span>.<span class="ruby-identifier">new</span>({<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>,<span class="ruby-identifier">:url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">attr</span>(<span class="ruby-value str">'href'</span>)}))
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">director</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-genres-method" class="method-detail">
+			
+				<a name="get_genres"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_genres</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera os generos do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-genres-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 66</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_genres</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">genres</span> = []
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//div[@class=&quot;info&quot;]//div[@class=&quot;info-content&quot;]//a'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword kw">if</span>(<span class="ruby-regexp re">/\/Sections\/Genres\/(\w+)\//</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">attr</span>(<span class="ruby-value str">'href'</span>)))
+                    <span class="ruby-identifier">genres</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>)
+                <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">genres</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-plot-method" class="method-detail">
+			
+				<a name="get_plot"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_plot</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera a trama do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-plot-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 50</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_plot</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">father</span> = <span class="ruby-keyword kw">nil</span>
+            <span class="ruby-identifier">tagline</span> = <span class="ruby-value str">''</span>
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//h5'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">v</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'Plot:'</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">father</span>.<span class="ruby-identifier">nil?</span>)
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">next</span>
+                <span class="ruby-identifier">tagline</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">tagline</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-rating-method" class="method-detail">
+			
+				<a name="get_rating"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_rating</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera a nota do filme atribuida pelos usuário do imdb.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-rating-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 23</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_rating</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">rating</span> = <span class="ruby-value">0</span>
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//div[@class=&quot;starbar-meta&quot;]//b'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">match</span> = <span class="ruby-regexp re">/[\d\.][^\/]+/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>)
+                <span class="ruby-identifier">rating</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">rating</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-recomendations-method" class="method-detail">
+			
+				<a name="get_recomendations"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_recomendations</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera as recomendações para esse filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-recomendations-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 137</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_recomendations</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">recomendations</span> = []
+            
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//table[@class=&quot;recs&quot;]//tr//td//a'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">recomendations</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">recomendations</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-runtime-method" class="method-detail">
+			
+				<a name="get_runtime"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_runtime</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera o tempo de duração do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-runtime-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 103</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_runtime</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">father</span> = <span class="ruby-keyword kw">nil</span>
+            <span class="ruby-identifier">runtime</span> = <span class="ruby-value str">''</span>
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//h5'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">v</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'Runtime:'</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">father</span>.<span class="ruby-identifier">nil?</span>)
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">next</span>
+                <span class="ruby-identifier">runtime</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">runtime</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-tagline-method" class="method-detail">
+			
+				<a name="get_tagline"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_tagline</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera o mote do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-tagline-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 34</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_tagline</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">father</span> = <span class="ruby-keyword kw">nil</span>
+            <span class="ruby-identifier">tagline</span> = <span class="ruby-value str">''</span>
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//h5'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">v</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'Tagline:'</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">father</span>.<span class="ruby-identifier">nil?</span>)
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">next</span>
+                <span class="ruby-identifier">tagline</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">tagline</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-title-and-year-method" class="method-detail">
+			
+				<a name="get_title_and_year"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_title_and_year</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera o nome e o ano de lançamento do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-title-and-year-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 10</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_title_and_year</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">title</span> = <span class="ruby-value str">&quot;&quot;</span>
+            <span class="ruby-identifier">year</span> = <span class="ruby-value str">&quot;&quot;</span>
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//h1'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">match</span> = <span class="ruby-regexp re">/(.[^\(]+)(\(\d+\))/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>)
+                <span class="ruby-identifier">title</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">nil?</span>
+                <span class="ruby-identifier">year</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[\(\)]/</span>,<span class="ruby-value str">''</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">title</span>, <span class="ruby-identifier">year</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+
+		
+			
+			<div id="get-writers-method" class="method-detail">
+			
+				<a name="get_writers"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_writers</span><span 
+						class="method-args">(doc)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Recupera os escriotres do filme.
+</p>
+					
+					
+					
+					<div class="method-source-code" 
+						id="get-writers-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/Thoth/MovieInfo.rb, line 119</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_writers</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">father</span> = <span class="ruby-keyword kw">nil</span>
+            <span class="ruby-identifier">writers</span> = []
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//h5'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">v</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'Writers (WGA):'</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">father</span>.<span class="ruby-identifier">nil?</span>)
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">next</span>
+                <span class="ruby-identifier">father</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                   <span class="ruby-identifier">writers</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">c</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">content</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">writers</span>
+        <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with $DEBUG to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish 
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

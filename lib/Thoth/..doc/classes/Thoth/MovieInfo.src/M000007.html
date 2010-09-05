@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_directors (Thoth::MovieInfo)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File MovieInfo.rb, line 79</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_directors</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">director</span> = []
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//div[@id=&quot;director-info&quot;]//div[@class=&quot;info-content&quot;]//a'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">director</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Thoth</span><span class="ruby-operator">::</span><span class="ruby-constant">Director</span>.<span class="ruby-identifier">new</span>({<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span>,<span class="ruby-identifier">:url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">attr</span>(<span class="ruby-value str">'href'</span>)}))
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">director</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

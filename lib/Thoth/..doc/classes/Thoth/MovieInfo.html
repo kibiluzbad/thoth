@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Thoth::MovieInfo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Thoth::MovieInfo</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/MovieInfo_rb.html">
+                MovieInfo.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Helpers para recuperar informações do filme do <a
+href="http://imdb.com">imdb.com</a> utilizando Nokogiri.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000008">get_cast</a>&nbsp;&nbsp;
+      <a href="#M000007">get_directors</a>&nbsp;&nbsp;
+      <a href="#M000006">get_genres</a>&nbsp;&nbsp;
+      <a href="#M000005">get_plot</a>&nbsp;&nbsp;
+      <a href="#M000003">get_rating</a>&nbsp;&nbsp;
+      <a href="#M000011">get_recomendations</a>&nbsp;&nbsp;
+      <a href="#M000009">get_runtime</a>&nbsp;&nbsp;
+      <a href="#M000004">get_tagline</a>&nbsp;&nbsp;
+      <a href="#M000002">get_title_and_year</a>&nbsp;&nbsp;
+      <a href="#M000010">get_writers</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000008.html');return false;">
+          <span class="method-name">get_cast</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera o elenco do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000007.html');return false;">
+          <span class="method-name">get_directors</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera os diretores do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000006.html');return false;">
+          <span class="method-name">get_genres</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera os generos do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000005.html');return false;">
+          <span class="method-name">get_plot</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera a trama do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000003.html');return false;">
+          <span class="method-name">get_rating</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera a nota do filme atribuida pelos usuário do imdb.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000011.html');return false;">
+          <span class="method-name">get_recomendations</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera as recomendações para esse filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000009.html');return false;">
+          <span class="method-name">get_runtime</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera o tempo de duração do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000004.html');return false;">
+          <span class="method-name">get_tagline</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera o mote do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000002.html');return false;">
+          <span class="method-name">get_title_and_year</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera o nome e o ano de lançamento do filme.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="MovieInfo.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('MovieInfo.src/M000010.html');return false;">
+          <span class="method-name">get_writers</span><span class="method-args">(doc)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recupera os escriotres do filme.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_plot (Thoth::MovieInfo)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File MovieInfo.rb, line 50</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_plot</span>(<span class="ruby-identifier">doc</span>)
+            <span class="ruby-identifier">father</span> = <span class="ruby-keyword kw">nil</span>
+            <span class="ruby-identifier">tagline</span> = <span class="ruby-value str">''</span>
+            <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'//h5'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>                
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">v</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">content</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'Plot:'</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">father</span>.<span class="ruby-identifier">nil?</span>)
+                <span class="ruby-identifier">father</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">next</span>
+                <span class="ruby-identifier">tagline</span> = <span class="ruby-identifier">father</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">tagline</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
