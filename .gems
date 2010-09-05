@@ -1,0 +1,2 @@
+sinatra --version '>=1.0'
+nokogiri --version '>=1.4.3.1'
