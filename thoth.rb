@@ -5,6 +5,8 @@ require 'sinatra'
 require 'open-uri'
 require 'nokogiri'
 require 'json'
+require 'haml'
+
 require 'Thoth/Common'
 require 'Thoth/Character'
 require 'Thoth/Director'
@@ -13,17 +15,22 @@ require 'Thoth/MovieInfo'
 require 'Thoth/ImdbParser'
 require 'Thoth/MovieSearchProvider'
 
-get '/' do
-    # matches "GET /"
-    'Thoth is on line!'
+helpers do
+  def stylesheet_link_tag(name)
+    "<link href='/css/#{name}.css' media='screen' rel='Stylesheet' type='text/css' />"
+  end
 end
 
-get '/movie/:imdbid' do
-    # TODO: Create regex to validate imdbid
+get '/' do
+    # matches "GET /"
+    haml :index
+end
+
+get %r{/movie/(tt[0-9]+)} do |imdbid|
     # matches "GET /movie/tt999999"
     # params[:imdbid] is a valid imdbid starting with 'tt'
     content_type :json
-    movie = Thoth::ImdbMovieParser::new.parse(params[:imdbid])
+    movie = Thoth::ImdbMovieParser::new.parse(imdbid)
     movie.to_json
 end
 
@@ -33,4 +40,22 @@ get '/search/:query' do
     content_type :json
     result = Thoth::MovieSearchProvider::search(params[:query])
     result.to_json
+end
+
+post '/search' do
+    # matches "POST /search
+    # params[:query] is movie title to search
+    @query = params[:query]
+    @result = Thoth::MovieSearchProvider::search(@query)
+    @result = @result.to_json
+    haml :index
+end
+
+post '/movie' do
+    # matches "POST /movie
+    # params[:imdbid] is a valid imdbid starting with 'tt'
+    @imdbid = params[:imdbid]
+    @result = Thoth::ImdbMovieParser::new.parse(@imdbid)
+    @result = @result.to_json
+    haml :index
 end

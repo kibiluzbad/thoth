@@ -1,0 +1,18 @@
+%fieldset
+    %legend Search movies
+    %form{:action=>'/search',:method=>'post'}
+        %label{:for=>'query'}Movie name:
+        %input{:id=>'query',:name=>'query',:value=>@query}
+        %br
+        %input{:type=>'submit',:value=>'Find',:id=>'submitbutton'}
+%br
+%fieldset
+    %legend Search movie
+    %form{:action=>'/movie',:method=>'post'}
+        %label{:for=>'imdbid'}Movie imdbid:
+        %input{:id=>'imdbid',:name=>'imdbid',:value=>@imdbid}
+        %br
+        %input{:type=>'submit',:value=>'Find',:id=>'submitbutton'}
+%br
+.results
+    = @result
