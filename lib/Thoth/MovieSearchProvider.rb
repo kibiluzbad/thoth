@@ -19,10 +19,16 @@ module Thoth
                     sr.title = item["titleNoFormatting"]
                     sr.content = item["content"]
                     sr.url = item["url"]
+                    sr.imdbid = find_imdbid(sr.url)
                 end)
             end
             
             result
+        end
+        
+        def self.find_imdbid(url)
+            match = /tt\d+/.match(url)
+            match[0] if match
         end        
     end
     
@@ -32,7 +38,7 @@ module Thoth
         include Attributes
         include AutoJ
         
-        attr_accessor :title, :content, :url
+        attr_accessor :title, :content, :url, :imdbid
         
         # Construtor da class, pode receber um bloco inicializando os parametros ou um hash.
         

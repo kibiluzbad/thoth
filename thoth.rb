@@ -19,6 +19,14 @@ helpers do
   def stylesheet_link_tag(name)
     "<link href='/css/#{name}.css' media='screen' rel='Stylesheet' type='text/css' />"
   end
+  
+  def javascript_link_tag(path)
+      "<script src=\"#{path.include?('http') ? path : '/javascript/' + path + '.js'}\" type=\"text/javascript\"></script> "
+  end
+  
+  def images_path(name)
+      "/images/#{name}"
+  end
 end
 
 get '/' do

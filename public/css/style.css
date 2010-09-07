@@ -1,7 +1,13 @@
 body{
     font-family:helvetica, arial, verdana;
     font-size:12pt;
-    color:#333;
+    color:#666;
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    width:1019px;
+    margin: 0 auto;
 }
 label{
 float: left;
@@ -31,4 +37,39 @@ width: 90px;
 
 br{
 clear: left;
+}
+
+fieldset{
+ border:1px solid #ddd;    
+}
+legend{
+ padding:10px;   
+}
+.code{
+ margin:5px;
+ padding:10px;
+ background-color:#f0f0f0;
+ font-style: italic;
+ color: #888;
+}
+.menu{
+ float:left;
+ font-size:14pt;
+ width:339px;
+ text-align:right;
+}
+.menu li{
+ display:inline;
+}
+.clear{
+ clear:both;   
+}
+h1{
+ float:left; 
+  width:339px;  
+}
+#logo{
+ float:left; 
+ width:339px; 
+ text-align:center;
 }

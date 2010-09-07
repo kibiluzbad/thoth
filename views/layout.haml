@@ -3,5 +3,16 @@
     %head
         %title Thoth
         = stylesheet_link_tag 'style'
+        = javascript_link_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'
+        = javascript_link_tag 'application'
     %body
-        = yield
+        #wrapper
+            %h1 THOTH
+            #logo
+                %img{:src=>images_path('hi_thoth.gif')}
+            .menu 
+                %ul
+                    %li 
+                        %a{:href=>'http://github.com/kibiluzbad/thoth'}code
+            .clear                
+            = yield

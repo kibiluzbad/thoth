@@ -4,7 +4,10 @@
         %label{:for=>'query'}Movie name:
         %input{:id=>'query',:name=>'query',:value=>@query}
         %br
-        %input{:type=>'submit',:value=>'Find',:id=>'submitbutton'}
+        %input{:type=>'submit',:value=>'Find',:id=>'submitbutton',:class=>'search_movies'}
+        %br
+        .code http://thothapp.heroku.com/search/[:query]<br /> ex: "http://thothapp.heroku.com/search/inception"
+        
 %br
 %fieldset
     %legend Search movie
@@ -12,7 +15,9 @@
         %label{:for=>'imdbid'}Movie imdbid:
         %input{:id=>'imdbid',:name=>'imdbid',:value=>@imdbid}
         %br
-        %input{:type=>'submit',:value=>'Find',:id=>'submitbutton'}
+        %input{:type=>'submit',:value=>'Find',:id=>'submitbutton',:class=>'search_movie'}
+        %br
+        .code http://thothapp.heroku.com/movie/[:imdbid]<br /> ex: "http://thothapp.heroku.com/movie/tt1375666"
 %br
 .results
     = @result
