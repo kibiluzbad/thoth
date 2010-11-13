@@ -27,6 +27,10 @@ module Thoth
                 m.runtime = get_runtime(doc)
                 m.writers = get_writers(doc)
                 m.recomendations = get_recomendations(doc)
+                m.votes = get_votes(doc)
+                m.top250 = get_top250(doc)
+                m.akas = get_akas(doc)
+                m.picture_path = get_picture_path(doc)
             end
         end
     end   

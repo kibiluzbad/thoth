@@ -5,7 +5,7 @@ module Thoth
     class Movie
        include Attributes
        include AutoJ
-        attr_accessor :imdbid, :title, :directors, :writers, :rating, :genres, :tagline, :plot, :cast, :year, :runtime, :recomendations
+        attr_accessor :imdbid, :title, :directors, :writers, :rating, :genres, :tagline, :plot, :cast, :year, :runtime, :recomendations, :votes, :top250, :akas, :picture_path
        
         # Construtor da class, pode receber um bloco inicializando os parametros ou um hash.
        

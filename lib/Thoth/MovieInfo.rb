@@ -15,6 +15,7 @@ module Thoth
         title = match[1].strip unless match.nil?
         year = match[2].gsub(/[\(\)]/,'') unless match.nil?
       end
+	  
       return title, year
     end
     
@@ -155,5 +156,36 @@ module Thoth
       end
       image.attributes["src"].value unless image.nil?      
     end
+    
+    # Recupera a quantidade de votos.
+    
+    def get_votes(doc)
+      votes = 0
+      doc.xpath('//a[@href="ratings"]').each do|v|
+        votes = v.content.strip.gsub(/[a-zA-Z\s\,]+/,'').to_f
+      end
+      votes
+    end
+    
+    # Recupera a posicao do filme no top250.
+    
+    def get_top250(doc)
+      
+      tag = doc.xpath('//div[@class="article highlighted"]//a').first
+      tag.nil? ? 0 : tag.content.strip.to_s.match(/\#(\d+)/)[1].to_i
+    end
+    
+    # Recupera a os outros nomes do filme.
+    
+    def get_akas(doc)
+      akas = []
+      tag_akas = nil
+      doc.xpath('//h4[@class="inline"]').each do|v|
+        tag_akas = v if v.content.strip == 'Also Known As:'
+      end
+      akas.push(tag_akas.parent.children[2].content.strip) unless tag_akas.nil?
+      akas
+    end
+    
   end
 end
