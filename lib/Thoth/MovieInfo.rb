@@ -82,7 +82,7 @@ module Thoth
       links.each do |link| 
         directors.push(Thoth::Director.new do |d|
 		  	d.name = link.to_s.match(/\>([^<]+)/)[1]
-		    d.url = link.to_s.match(/href\=\"([^\"]+)/)[1]
+		    d.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
 		    d.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
         end) 
       end unless links.nil?
@@ -106,7 +106,7 @@ module Thoth
           cast.push(Thoth::Character.new do |c|
             c.actor = actor.content.strip
             c.name = name.content.strip
-            c.url = url
+            c.url = "http://www.imdb.com#{url}"
             c.picture_path = picture_path
             c.imdbid = imdbid
           end)
@@ -145,7 +145,7 @@ module Thoth
       links.each do |link| 
       	writers.push(Thoth::Writer.new do |w|
 		  	w.name = link.to_s.match(/\>([^<]+)/)[1]
-		    w.url = link.to_s.match(/href\=\"([^\"]+)/)[1]
+		    w.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
 		    w.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
         end)
       end unless links.nil?
