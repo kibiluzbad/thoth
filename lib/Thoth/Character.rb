@@ -5,7 +5,7 @@ module Thoth
     class Character
        include Attributes
        include AutoJ
-        attr_accessor :actor, :name
+        attr_accessor :actor, :name, :url, :picture_path, :imdbid
        
        # Construtor da class, pode receber um bloco inicializando os parametros ou um hash.
        

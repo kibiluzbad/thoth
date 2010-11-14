@@ -79,8 +79,13 @@ module Thoth
       end
       links = tag_diretors.parent.children.select{|a| a.to_s.match(/^\<a/)} unless tag_diretors.nil?
       
-      links.each{|link| directors.push(Thoth::Director.new({:name=>link.to_s.match(/\>([^<]+)/)[1],
-        :url=>link.to_s.match(/href\=\"([^\"]+)/)[1]}))} unless links.nil?
+      links.each do |link| 
+        directors.push(Thoth::Director.new do |d|
+		  	d.name = link.to_s.match(/\>([^<]+)/)[1]
+		    d.url = link.to_s.match(/href\=\"([^\"]+)/)[1]
+		    d.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
+        end) 
+      end unless links.nil?
       
       directors
     end
@@ -91,12 +96,19 @@ module Thoth
       cast = []
       doc.xpath('//table[@class="cast_list"]//tr').each do|v|
         actor = v.xpath('td[@class="name"]//a').first
-        name = v.xpath('td[@class="character"]//a').first        
+        name = v.xpath('td[@class="character"]//a').first
         
         if(!actor.nil? && !name.nil?)
+          url = v.xpath('td[@class="name"]//a').first.attributes["href"].value
+          picture_path = v.xpath('td[@class="primary_photo"]//a//img').first.attributes["src"].value
+          imdbid = url.match(/\/(nm[\d]+)\//)[1]
+          
           cast.push(Thoth::Character.new do |c|
             c.actor = actor.content.strip
             c.name = name.content.strip
+            c.url = url
+            c.picture_path = picture_path
+            c.imdbid = imdbid
           end)
         end
       end
@@ -130,7 +142,13 @@ module Thoth
       end
       links = tag_writers.parent.children.select{|a| a.to_s.match(/^\<a/)} unless tag_writers.nil?
       
-      links.each{|link| writers.push(link.to_s.match(/\>([^<]+)/)[1])} unless links.nil?
+      links.each do |link| 
+      	writers.push(Thoth::Writer.new do |w|
+		  	w.name = link.to_s.match(/\>([^<]+)/)[1]
+		    w.url = link.to_s.match(/href\=\"([^\"]+)/)[1]
+		    w.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
+        end)
+      end unless links.nil?
       
       writers
     end
