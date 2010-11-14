@@ -1,5 +1,8 @@
 module Thoth
-	class Writer < Thoth::Person
-		
-	end
+
+  # Define um escritor.
+  class Writer < Thoth::Person
+
+  end
 end
+

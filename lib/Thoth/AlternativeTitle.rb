@@ -1,10 +1,9 @@
 module Thoth
-  # Define as propriedades de uma pessoa.
-  class Person
+  #Representa um titulo do filme em outra lingua.
+  class AlternativeTitle
     include Attributes
     include AutoJ
-
-    attr_accessor :imdbid, :name, :url
+    attr_accessor :title, :country
 
     # Construtor da class, pode receber um bloco inicializando os parametros ou um hash.
 
