@@ -202,7 +202,10 @@ module Thoth
   def get_top250(doc)
 
     tag = doc.xpath('//div[@class="article highlighted"]//a').first
-    tag.nil? ? 0 : tag.content.strip.to_s.match(/\#(\d+)/)[1].to_i
+    return 0 if tag.nil?
+      
+    match = tag.content.strip.to_s.match(/\#(\d+)/)
+    match[1].to_i if match
   end
 
   # Recupera a os outros nomes do filme.
