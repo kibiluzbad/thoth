@@ -10,13 +10,16 @@ module Thoth
     def get_title_and_year(doc)
       title = ""
       year = ""
-      doc.xpath('//h1').each do|v|
-        match = /(.[^\(]+)(\(\d+\))/.match(v.content)
-        title = match[1].strip unless match.nil?
-        year = match[2].gsub(/[\(\)]/,'') unless match.nil?
-      end
+      h1_tag = doc.xpath('//h1').first
+      if h1_tag
+          
+        title = h1_tag.children[0].content.strip
+        match = h1_tag.content.to_s.match(/\((\d{4})\)/)        
+        year = match[1] unless match.nil?
 
-      return title, year
+      end
+      
+      return title, year      
     end
 
     # Recupera a nota do filme atribuida pelos usuário do imdb.
@@ -143,11 +146,14 @@ module Thoth
     links = tag_writers.parent.children.select{|a| a.to_s.match(/^\<a/)} unless tag_writers.nil?
 
     links.each do |link|
-      writers.push(Thoth::Writer.new do |w|
-        w.name = link.to_s.match(/\>([^<]+)/)[1]
-        w.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
-        w.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
-      end)
+      imdbid_match = link.to_s.match(/\/(nm[\d]+)\//)
+      if imdbid_match
+        writers.push(Thoth::Writer.new do |w|
+          w.name = link.to_s.match(/\>([^<]+)/)[1]
+          w.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
+          w.imdbid = imdbid_match[1]
+        end)
+      end
     end unless links.nil?
 
     writers

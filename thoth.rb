@@ -19,8 +19,6 @@ require 'Thoth/MovieInfo'
 require 'Thoth/ImdbParser'
 require 'Thoth/MovieSearchProvider'
 
-set :environment, :production
-
 helpers do
   def stylesheet_link_tag(name)
     "<link href='/css/#{name}.css' media='screen' rel='Stylesheet' type='text/css' />"
