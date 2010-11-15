@@ -19,6 +19,8 @@ require 'Thoth/MovieInfo'
 require 'Thoth/ImdbParser'
 require 'Thoth/MovieSearchProvider'
 
+set :environment, :production
+
 helpers do
   def stylesheet_link_tag(name)
     "<link href='/css/#{name}.css' media='screen' rel='Stylesheet' type='text/css' />"
@@ -35,7 +37,7 @@ end
 
 get '/' do
   # matches "GET /"
-  haml :index
+  haml :index  
 end
 
 get %r{/movie/(tt[0-9]+)} do |imdbid|
@@ -57,10 +59,10 @@ end
 post '/search' do
   # matches "POST /search
   # params[:query] is movie title to search
-  @query = params[:query]
+  @query = params[:query]  
   @result = Thoth::MovieSearchProvider::search(@query)
   @result = @result.to_json
-  haml :index
+  haml :index  
 end
 
 post '/movie' do
@@ -69,6 +71,10 @@ post '/movie' do
   @imdbid = params[:imdbid]
   @result = Thoth::ImdbMovieParser::new.parse(@imdbid)
   @result = @result.to_json
-  haml :index
+  haml :index    
+end
+
+error do
+  {:error => env['sinatra.error']}.to_json
 end
 
