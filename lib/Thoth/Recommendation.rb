@@ -5,7 +5,7 @@ module Thoth
   class Recommendation
     include Attributes
     include AutoJ
-    attr_accessor :title, :url, :picture_path
+    attr_accessor :imdbid, :title, :url, :picture_path
 
     # Construtor da class, pode receber um bloco inicializando os parametros ou um hash.
 

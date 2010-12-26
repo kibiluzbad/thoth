@@ -175,8 +175,9 @@ module Thoth
     doc.xpath('//div[@id="recommend"]//div//a').each do|v|
       unless v.content.empty?
         recommendations.push(Thoth::Recommendation.new do |rec|
+          rec.imdbid = /tt[0-9]+/.match(v.attributes["href"].value.strip)[0]
           rec.title = v.content.strip
-          rec.url = "http://www.imdb.com#{v.attributes["href"].value}"
+          rec.url = "http://www.imdb.com#{v.attributes["href"].value}"          
           rec.picture_path = v.parent.xpath('a//img').first.attributes["src"].value
         end)
       end
