@@ -1,0 +1,5 @@
+== Descrição
+
+Serviço de busca de filmes utilizando a API de busca do google para encontrar o imdbid do filme por titulo, para então buscar os dados do filme do imdb.
+
+http://thothapp.heroku.com/
