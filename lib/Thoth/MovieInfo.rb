@@ -83,11 +83,16 @@ module Thoth
     links = tag_diretors.parent.children.select{|a| a.to_s.match(/^\<a/)} unless tag_diretors.nil?
 
     links.each do |link|
-      directors.push(Thoth::Director.new do |d|
-        d.name = link.to_s.match(/\>([^<]+)/)[1]
-        d.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
-        d.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
-      end)
+      name = link.to_s.match(/\>([^<]+)/)[1]
+      
+      if(0 == directors.select{|d| d.name == name}.count)
+        directors.push(Thoth::Director.new do |d|
+          d.name = name
+          d.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
+          d.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
+        end)
+      end
+      
     end unless links.nil?
 
     directors
@@ -148,11 +153,14 @@ module Thoth
     links.each do |link|
       imdbid_match = link.to_s.match(/\/(nm[\d]+)\//)
       if imdbid_match
-        writers.push(Thoth::Writer.new do |w|
-          w.name = link.to_s.match(/\>([^<]+)/)[1]
-          w.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
-          w.imdbid = imdbid_match[1]
-        end)
+        name = link.to_s.match(/\>([^<]+)/)[1]
+        if(0 == writers.select{|d| d.name == name}.count)
+          writers.push(Thoth::Writer.new do |w|
+            w.name = name
+            w.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
+            w.imdbid = imdbid_match[1]
+          end)
+        end
       end
     end unless links.nil?
 
