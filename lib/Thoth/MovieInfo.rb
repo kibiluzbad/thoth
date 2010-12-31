@@ -83,16 +83,20 @@ module Thoth
     links = tag_diretors.parent.children.select{|a| a.to_s.match(/^\<a/)} unless tag_diretors.nil?
 
     links.each do |link|
-      name = link.to_s.match(/\>([^<]+)/)[1]
+      match = link.to_s.match(/\>([^<]+)/)
+      match2 = link.to_s.match(/\/(nm[\d]+)\//)
       
-      if(0 == directors.select{|d| d.name == name}.count)
-        directors.push(Thoth::Director.new do |d|
-          d.name = name
-          d.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
-          d.imdbid = link.to_s.match(/\/(nm[\d]+)\//)[1]
-        end)
-      end
+      if match && match2 && 2 <= match.length && 2 <= match2.length
+       name = match[1]
       
+       if(0 == directors.select{|d| d.name == name}.count)
+         directors.push(Thoth::Director.new do |d|
+           d.name = name
+           d.url = "http://www.imdb.com#{link.to_s.match(/href\=\"([^\"]+)/)[1]}"
+           d.imdbid = match2[1]
+         end)
+       end
+      end      
     end unless links.nil?
 
     directors
