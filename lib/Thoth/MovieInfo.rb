@@ -112,8 +112,9 @@ module Thoth
 
       if(!actor.nil? && !name.nil?)
         url = v.xpath('td[@class="name"]//a').first.attributes["href"].value
+        character_url = name.attributes["href"].value
         picture_path = v.xpath('td[@class="primary_photo"]//a//img').first.attributes["src"].value
-        imdbid = url.match(/\/(nm[\d]+)\//)[1]
+        imdbid = character_url.match(/\/(ch[\d]+)\//)[1]
 
         cast.push(Thoth::Character.new do |c|
           c.actor = actor.content.strip
