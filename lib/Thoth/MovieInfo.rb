@@ -25,8 +25,8 @@ module Thoth
     # Recupera a nota do filme atribuida pelos usuário do imdb.
 
     def get_rating(doc)
-      rating = 0
-        doc.xpath('//span[@class="rating-rating"]').each do|v|
+      rating = 0      
+        doc.xpath('//span[@itemprop="ratingValue"]').each do|v|
         match = /[\d\.][^\/]+/.match(v.content)
         rating = match[0].to_f unless match.nil?
       end
